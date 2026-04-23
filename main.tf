@@ -123,3 +123,9 @@ module "ec2_instances" {
   subnet_ids         = module.vpc.private_subnets[*]
   security_group_ids = [module.app_security_group.this_security_group_id]
 }
+
+module "s3_bucket" {
+  source  = "app.terraform.io/policy-as-code-training/s3-bucket-PMD/aws"
+  version = "1.0.0"
+  bucket_name = "terraform-aws-s3-bucket-PMD"
+}
